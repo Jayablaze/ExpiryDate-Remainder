@@ -52,6 +52,7 @@ class _QrCodeState extends State<MyHomePage> {
               Container(
                 child: Text(
                   _data,
+                  style: TextStyle(color: Colors.red),
                 ),
               )
             ],
