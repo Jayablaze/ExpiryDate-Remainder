@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'addexpiry.dart';
 import 'bottomsheet.dart';
 
 class Expiryremainder extends StatefulWidget {
@@ -17,6 +18,14 @@ class _ExpiryremainderState extends State<Expiryremainder> {
         title: Text("Expiry Remainder"),
       ),
       body: Container(color: Colors.orange),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Expirydetector()));
+        },
+        backgroundColor: Colors.blueAccent,
+        child: const Icon(Icons.add),
+      ),
       bottomNavigationBar: BottomBarPage(),
     );
   }
