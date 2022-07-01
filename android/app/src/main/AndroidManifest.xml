@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.notification">
+   <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="notification"
+        android:label="ExpiryDate Remainder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
