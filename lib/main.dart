@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:jumping_bottom_nav_bar/jumping_bottom_nav_bar.dart';
-// import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
-import 'package:notification/info.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +14,50 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Productinfomartion(),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  //final String title;
+
+  @override
+  State<MyHomePage> createState() => _QrCodeState();
+}
+
+class _QrCodeState extends State<MyHomePage> {
+  String _data = "";
+
+  _scan() async {
+    await FlutterBarcodeScanner.scanBarcode(
+            "#000000", "Cancel", true, ScanMode.BARCODE)
+        .then((value) => setState(() => _data = value));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+          body: Container(
+        height: 500,
+        child: Center(
+          child: Column(
+            children: [
+              ElevatedButton(
+                child: Text("Scan Barcode"),
+                onPressed: () => _scan(),
+              ),
+              Text(_data),
+              Container(
+                child: Text(
+                  _data,
+                ),
+              )
+            ],
+          ),
+        ),
+      )),
     );
   }
 }
