@@ -37,8 +37,8 @@ class _BottomBarPageState extends State<BottomBarPage> {
     switch (globals.Selectedindex) {
       case 0:
         {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Productinfo()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Productinfomartion()));
         }
         break;
       case 1:
@@ -71,7 +71,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
       items: [
         TabItemIcon(
           iconData: Icons.info_outlined,
-          curveColor: Colors.yellow,
+          curveColor: Colors.grey,
         ),
         TabItemIcon(
             iconData: Icons.notification_important_outlined,
