@@ -12,6 +12,21 @@ class BottomBarPage extends StatefulWidget {
 }
 
 class _BottomBarPageState extends State<BottomBarPage> {
+  @override
+  void initState() {
+    super.initState();
+    /* initConnectivity();
+
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);*/
+  }
+
+  @override
+  void dispose() {
+    // _connectivitySubscription.cancel();
+    super.dispose();
+  }
+
   void onChangeTab(int index) {
     setState(() {
       globals.Selectedindex = index;
@@ -20,19 +35,19 @@ class _BottomBarPageState extends State<BottomBarPage> {
     print("jhhcsdhvsdv" + index.toString());
 
     switch (globals.Selectedindex) {
-      case 1:
+      case 0:
         {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Productinfo()));
         }
         break;
-      case 2:
+      case 1:
         {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => Expiryremainder()));
         }
         break;
-      case 3:
+      case 2:
         {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Profileinfo()));
@@ -63,39 +78,8 @@ class _BottomBarPageState extends State<BottomBarPage> {
             curveColor: Colors.orange),
         // TabItemIcon(iconData: Icons.location_on, curveColor: Colors.green),
         TabItemIcon(
-          buildWidget: (_, color) => Stack(
-            children: <Widget>[
-              new Icon(
-                Icons.perm_identity_rounded,
-                size: 30,
-              ),
-              new Positioned(
-                top: 1.0,
-                right: 0.0,
-                child: new Stack(
-                  children: <Widget>[
-                    new Icon(
-                      Icons.brightness_1,
-                      size: 18.0,
-                      color: Colors.green[800],
-                    ),
-                    new Positioned(
-                      top: 1.0,
-                      right: 4.0,
-                      child: new Text("2",
-                          style: new TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          curveColor: Colors.lightGreen,
-        ),
+            iconData: Icons.notification_important_outlined,
+            curveColor: Colors.orange),
         // TabItemIcon(iconData: Icons.supervised_user_circle),
       ],
       selectedIndex: globals.Selectedindex,
